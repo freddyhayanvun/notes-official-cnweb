@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日常查询 · 对照阅读 | leyu</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f1f3f6;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1e2a3a;
+      line-height: 1.65;
+      padding: 2rem 1.2rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page-wrap {
+      max-width: 860px;
+      width: 100%;
+    }
+
+    /* header / hero 简洁 */
+    .hero {
+      margin-bottom: 2.5rem;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: #1d2b3f;
+      border-left: 5px solid #4b6b8a;
+      padding-left: 1rem;
+      line-height: 1.3;
+    }
+
+    .hero .sub {
+      margin-top: 0.6rem;
+      color: #4b5e72;
+      font-size: 1rem;
+      border-bottom: 1px solid #d8dee6;
+      padding-bottom: 0.75rem;
+    }
+
+    /* card 风格 */
+    .card {
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.04);
+      padding: 1.8rem 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #e6ecf2;
+      transition: box-shadow 0.15s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02);
+    }
+
+    .card h2 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      color: #1f2f41;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .card h2::before {
+      content: "∷";
+      font-size: 0.9rem;
+      color: #6b859e;
+      font-weight: 300;
+    }
+
+    .card p {
+      margin-bottom: 1.1rem;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .quote-badge {
+      background: #eef3f9;
+      border-left: 3px solid #6b859e;
+      padding: 0.9rem 1.3rem;
+      margin: 1.6rem 0 1.2rem 0;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.95rem;
+      color: #1f2f41;
+      line-height: 1.6;
+    }
+
+    .quote-badge strong {
+      font-weight: 500;
+      color: #2c405a;
+    }
+
+    .insight {
+      background: #f7faff;
+      border: 1px solid #d6e2ee;
+      border-radius: 12px;
+      padding: 1.3rem 1.6rem;
+      margin: 1.8rem 0;
+    }
+
+    .insight p {
+      margin-bottom: 0.5rem;
+      color: #1f3347;
+    }
+
+    .insight .small-note {
+      font-size: 0.9rem;
+      color: #556b7e;
+    }
+
+    .faq-mini {
+      display: grid;
+      gap: 1.2rem;
+      margin-top: 1.2rem;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #e4eaf1;
+      padding-bottom: 0.75rem;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      color: #1a2b3e;
+      margin-bottom: 0.3rem;
+    }
+
+    .faq-a {
+      color: #3c5268;
+      font-size: 0.95rem;
+    }
+
+    .link-sentence {
+      background: #f0f4fa;
+      border-radius: 10px;
+      padding: 1.2rem 1.5rem;
+      margin-top: 1.8rem;
+      font-size: 1rem;
+      border: 1px solid #dce5ef;
+    }
+
+    .link-sentence a {
+      color: #1f4a7a;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dashed #7f9bb5;
+      transition: border 0.2s;
+    }
+
+    .link-sentence a:hover {
+      border-bottom: 2px solid #1f4a7a;
+    }
+
+    .footer-note {
+      margin-top: 2.5rem;
+      font-size: 0.9rem;
+      color: #687b8d;
+      border-top: 1px solid #d6dee8;
+      padding-top: 1.5rem;
+      text-align: center;
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      body {
+        padding: 1.2rem 0.8rem;
+      }
+
+      .card {
+        padding: 1.3rem 1.2rem;
+      }
+
+      .hero h1 {
+        font-size: 1.6rem;
+        padding-left: 0.8rem;
+      }
+
+      .quote-badge {
+        padding: 0.8rem 1rem;
+      }
+
+      .insight {
+        padding: 1rem;
+      }
+
+      .link-sentence {
+        padding: 1rem;
+      }
+    }
+
+    @media (max-width: 440px) {
+      .hero h1 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- hero 区 -->
+  <div class="hero">
+    <h1>日常查询 · 对照 & 延伸阅读</h1>
+    <div class="sub">从一次偶然的搜索，到逐渐清晰的脉络</div>
+  </div>
+
+  <!-- 第一张卡片：引子 / 导语 -->
+  <div class="card">
+    <h2>从“随手一查”开始</h2>
+    <p>许多时候，我们打开浏览器并输入一个词，并没有明确的目的地。只是想确认某个细节，或是看看有没有不同的说法。这种日常的查询行为，往往比想象中更有价值——它帮助我们把零散的信息一点点拼成轮廓。</p>
+    <p>前几天整理书签时，我又翻到之前常用来对照的页面，其中一个正是 <strong>leyu</strong> 相关的信息聚合。它并不是那种铺满弹窗的站点，反而更像一个安静的笔记本，适合慢读和反复参照。</p>
+    <div class="quote-badge">
+      <strong>提示：</strong> 延伸阅读不一定要长篇大论，有时一个可靠的索引比几十个标签页更有用。
+    </div>
+  </div>
+
+  <!-- 第二张卡片：对照阅读的多段正文 -->
+  <div class="card">
+    <h2>对照阅读的两种节奏</h2>
+    <p>第一种是“平行对照”——打开两三个页面，左右对比说法、数据和发布时间。这种节奏适合需要确认事实的时候，比如验证某个功能的描述是否准确，或者看不同来源对同一事件的表述差异。</p>
+    <p>第二种是“纵览对照”，即先快速浏览一个结构清晰的页面，再根据其中的线索去延伸。这种方式更适合探索阶段：不需要一上来就深入细节，而是先搭好框架。我最近在尝试用后者处理一些积累了很久的待读内容，效率确实有改善。</p>
+    <p>而在这两种方式里，一个内容组织干净、层级分明的站点能节省大量时间。<a href="https://official-cnweb-leyu.com" style="color:#1f4a7a; text-decoration:none; font-weight:500; border-bottom:1px dashed #7f9bb5;">leyu</a> 的页面排版就属于那种让人愿意多看几眼的类型——没有冗余的装饰，信息分组很直觉，适合作为日常对照的起点。</p>
+  </div>
+
+  <!-- 第三张卡片：场景段落 + 引用 -->
+  <div class="card">
+    <h2>一个常见的查询场景</h2>
+    <p>设想你在读一篇技术文章或产品说明，遇到一个不太熟悉的概念。你希望快速了解它的来龙去脉，但又不想被广告或无关推荐打断。这时候，一个简洁的参考页就是最好的伙伴。</p>
+    <div class="insight">
+      <p>我常常在右侧开一个小窗口，打开 <strong>leyu</strong> 的页面，一边读原文一边对照。遇到不清楚的术语或背景，直接在当前页查找关键词，就能看到对应的解释和上下文。这种设置比我之前用多标签页反复切换要舒服得多。</p>
+      <p class="small-note">当然，每个人的习惯不同，但可以试试这种“主文+参考”的布局，也许能带来不一样的阅读体验。</p>
+    </div>
+    <p>另一个小技巧：把常用的参考页面固定在浏览器标签栏，需要时一键切换，不必每次都重新搜索。这样既保留了探索的随机性，又不会丢失重要的锚点。</p>
+  </div>
+
+  <!-- 第四张卡片：FAQ 摘要风格 -->
+  <div class="card">
+    <h2>延伸阅读中的几个常见问题</h2>
+    <div class="faq-mini">
+      <div class="faq-item">
+        <div class="faq-q">✓ 如何判断一个参考页是否可靠？</div>
+        <div class="faq-a">优先看内容是否有明确的更新日期、信息来源是否标注，以及整体排版是否专业。leyu 的页面在这方面做得比较规范，每个模块都保留了一定的上下文。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">✓ 对照阅读时应该先看哪个部分？</div>
+        <div class="faq-a">取决于你的目标。如果是查漏补缺，可以直奔与当前疑问相关的段落；如果想建立整体认知，建议从导语或概述开始，再逐步深入。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">✓ 延伸阅读需要做笔记吗？</div>
+        <div class="faq-a">可以简单记录页面的核心观点和自己的疑问，哪怕只有一行字。下次再翻到时，你会更容易找回当时的思考路径。</div>
+      </div>
+    </div>
+    <div class="link-sentence">
+      如果你也习惯在阅读时保持一个安静的参考窗口，不妨将 <a href="https://official-cnweb-leyu.com">leyu</a> 加入书签，它或许能成为你日常查询中的一个可靠坐标。
+    </div>
+  </div>
+
+  <!-- footer 简单的访问句 -->
+  <div class="footer-note">
+    记录于一次普通的检索之后 · 希望这篇笔记对你的阅读也有少许帮助
+  </div>
+
+</div>
+</body>
+</html>
