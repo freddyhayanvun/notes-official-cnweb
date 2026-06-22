@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ayx · 简明指南页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f4f5f7;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #222;
+      line-height: 1.7;
+      padding: 2rem 1rem;
+    }
+
+    .page-wrapper {
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+
+    /* 顶部标识 / 标题区 */
+    .hero-tag {
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-tag h1 {
+      font-size: 2rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: #2a2f3a;
+      background: #fff;
+      display: inline-block;
+      padding: 0.2rem 1.2rem 0.2rem 1.2rem;
+      border-radius: 40px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+      border: 1px solid #e5e8ed;
+    }
+
+    .hero-tag p {
+      margin-top: 0.6rem;
+      color: #555b68;
+      font-size: 0.98rem;
+      border-left: 3px solid #b9c0cb;
+      padding-left: 1rem;
+    }
+
+    /* 卡片网格 —— 目录感布局 */
+    .card-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.6rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .card {
+      flex: 1 1 280px;
+      background: #ffffff;
+      border-radius: 14px;
+      border: 1px solid #e8ecf1;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.03);
+      padding: 1.6rem 1.4rem 1.8rem 1.4rem;
+      transition: box-shadow 0.2s, transform 0.1s;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.04), 0 2px 6px rgba(0,0,0,0.03);
+      transform: translateY(-2px);
+      border-color: #d0d6de;
+    }
+
+    .card h3 {
+      font-weight: 500;
+      font-size: 1.1rem;
+      color: #1f2632;
+      margin-bottom: 0.7rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #edf0f5;
+    }
+
+    .card p, .card li {
+      font-size: 0.93rem;
+      color: #3f4756;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .card ul li {
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .card ul li::before {
+      content: "·";
+      position: absolute;
+      left: 2px;
+      color: #8491a5;
+      font-weight: bold;
+    }
+
+    .inline-link {
+      color: #2c5282;
+      text-decoration: none;
+      border-bottom: 1px dotted #bcc7d8;
+      transition: border-color 0.15s, color 0.15s;
+      font-weight: 400;
+    }
+
+    .inline-link:hover {
+      border-bottom: 1px solid #2c5282;
+      color: #1a365d;
+    }
+
+    /* 提示区 + 相关信息区 并排 */
+    .info-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.6rem;
+      margin: 1.8rem 0 2.5rem 0;
+    }
+
+    .info-card {
+      background: #fff;
+      flex: 1 1 280px;
+      border-radius: 14px;
+      border: 1px solid #e8ecf1;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+      padding: 1.5rem 1.4rem;
+    }
+
+    .info-card.title-small {
+      background: #fafbfc;
+      border-color: #e0e5ec;
+    }
+
+    .info-card h4 {
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: #4b5563;
+      margin-bottom: 0.9rem;
+      border-left: 3px solid #b0bbc9;
+      padding-left: 0.7rem;
+    }
+
+    .info-card p, .info-card li {
+      font-size: 0.92rem;
+      color: #374151;
+    }
+
+    .info-card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .info-card ul li {
+      margin-bottom: 0.45rem;
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .info-card ul li::before {
+      content: "–";
+      position: absolute;
+      left: 0;
+      color: #8895aa;
+    }
+
+    /* 访问提醒 / 备注区 */
+    .note-block {
+      background: #f9fafc;
+      border: 1px solid #e3e8ef;
+      border-radius: 16px;
+      padding: 1.6rem 1.8rem;
+      margin: 2rem 0 2.5rem 0;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+    }
+
+    .note-block p {
+      font-size: 0.96rem;
+      color: #2f384a;
+      margin-bottom: 0.5rem;
+    }
+
+    .note-block p:last-child {
+      margin-bottom: 0;
+    }
+
+    .note-block strong {
+      font-weight: 500;
+      color: #1f2a3d;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e2e7ee;
+      margin: 2rem 0 1rem 0;
+    }
+
+    .footer-note {
+      font-size: 0.82rem;
+      color: #7c8594;
+      text-align: center;
+    }
+
+    .footer-note a {
+      color: #4f5a6a;
+      text-decoration: none;
+      border-bottom: 1px dotted #bcc4d2;
+    }
+
+    .footer-note a:hover {
+      border-bottom: 1px solid #4f5a6a;
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 1.2rem 0.8rem;
+      }
+      .hero-tag h1 {
+        font-size: 1.6rem;
+        padding: 0.1rem 1rem;
+      }
+      .card {
+        padding: 1.3rem 1rem;
+      }
+      .info-card {
+        padding: 1.2rem 1rem;
+      }
+      .note-block {
+        padding: 1.2rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- hero / 简明标题 -->
+  <div class="hero-tag">
+    <h1>📋 ayx · 知识库入口</h1>
+    <p>一份简明访问指南，涵盖基本信息、常用场景与注意事项。基于 <a href="https://chn-ssl-ayx.com" class="inline-link">ayx</a> 的相关说明整理，供参考与索引。</p>
+  </div>
+
+  <!-- 目录感卡片区：三个主要分区 -->
+  <div class="card-grid">
+    <div class="card">
+      <h3>🔍 说明区</h3>
+      <p>本页面向初次接触 <a href="https://chn-ssl-ayx.com" class="inline-link">ayx</a> 的用户提供整合式概览。内容来自公开资料与常见使用场景，覆盖基础功能模块、访问路径及管理入口。</p>
+      <p style="margin-top: 0.6rem;">建议先浏览左侧或右侧卡片中的提示与相关信息，再根据实际需求选择对应模块。</p>
+    </div>
+
+    <div class="card">
+      <h3>📌 提示区</h3>
+      <ul>
+        <li>使用前请确认网络环境稳定，部分功能需保持连接。</li>
+        <li>个人账户与敏感信息请勿通过非官方渠道透露。</li>
+        <li>如遇到加载异常，可尝试刷新页面或稍后重试。</li>
+        <li>建议记录常用入口，例如 <a href="https://chn-ssl-ayx.com" class="inline-link">ayx</a> 主页。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>📎 相关信息区</h3>
+      <ul>
+        <li>域名关联 SSL 加密入口，数据传输经过验证。</li>
+        <li>支持主流浏览器及移动端适配布局。</li>
+        <li>常见问题（FAQ）可参考后续摘要卡片。</li>
+        <li>版本更新记录与状态通知通过内部公告发布。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要 + 附加提示 并排 -->
+  <div class="info-row">
+    <div class="info-card title-small">
+      <h4>FAQ · 简短摘要</h4>
+      <ul>
+        <li><strong>如何开始？</strong> 直接访问主站 <a href="https://chn-ssl-ayx.com" class="inline-link">ayx</a> 即可看到初始界面。</li>
+        <li><strong>是否需要注册？</strong> 部分区域提供公开信息，部分模块需凭账户登录。</li>
+        <li><strong>连接是否安全？</strong> 页面使用 HTTPS 协议，通信加密。</li>
+        <li><strong>遇到页面错误？</strong> 可先清除浏览器缓存后重试。</li>
+      </ul>
+    </div>
+
+    <div class="info-card title-small">
+      <h4>访问场景参考</h4>
+      <ul>
+        <li>日常信息查询 · 快速浏览</li>
+        <li>账户管理 · 个人设置</li>
+        <li>数据查阅 · 操作记录</li>
+        <li>技术对接 · 接口文档入口</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 醒目的访问提醒 / note 区块 -->
+  <div class="note-block">
+    <p><strong>⚠️ 访问提醒</strong></p>
+    <p>请始终通过官方域名 <a href="https://chn-ssl-ayx.com" class="inline-link">ayx</a> 进入，避免使用来历不明的镜像或第三方链接。维护个人账户安全，不要向他人泄露密码或验证码。如发现页面异常（如证书错误、内容不符），请立即退出并检查网络环境。</p>
+    <p style="margin-top: 0.6rem;">本页面仅作为索引与提示参考，不代替官方公告或用户协议。具体操作请以实际页面显示为准。</p>
+  </div>
+
+  <!-- 简单分隔 + 脚注 -->
+  <hr>
+  <div class="footer-note">
+    <p>基于 <a href="https://chn-ssl-ayx.com">ayx</a> 公开信息整理 · 索引页仅用于辅助说明 · 内容保持克制与客观</p>
+  </div>
+
+</div>
+</body>
+</html>
